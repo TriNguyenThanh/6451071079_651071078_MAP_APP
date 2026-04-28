@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1040055424891",
+    "project_id": "utc2-edu-vn",
+    "storage_bucket": "utc2-edu-vn.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040055424891:android:10a99849f331dd4787cfde",
+        "android_client_info": {
+          "package_name": "com.example.diamon_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlUZaIXgD5eXTmPUt-kR1cgVoqS3ECB3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
