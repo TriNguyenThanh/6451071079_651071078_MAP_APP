@@ -1,3 +1,9 @@
+import 'package:diamon_store/screens/auth/forget_password_screen.dart';
+import 'package:diamon_store/screens/auth/login_screen.dart';
+import 'package:diamon_store/screens/auth/register_screen.dart';
+import 'package:diamon_store/screens/auth/register_success_screen.dart';
+import 'package:diamon_store/screens/auth/reset_email_sent_screen.dart';
+import 'package:diamon_store/screens/auth/verify_email_screen.dart';
 import 'package:diamon_store/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/home/main_navigation_screen.dart';
@@ -32,5 +38,17 @@ class AppRoutes {
     splash: (context) => const SplashScreen(),
     onboarding: (context) => const OnboardingScreen(),
     home: (context) => const MainNavigationScreen(),
+    register: (context) => const RegisterScreen(),
+    login: (context) => const LoginScreen(),
+    forgetPassword: (context) => ForgetPasswordScreen(),
+    verifyEmail: (context) {
+      final String email = ModalRoute.of(context)!.settings.arguments as String;
+      return VerifyEmailScreen(email: email);
+    },
+    registerSuccess: (context) => const RegisterSuccessScreen(),
+    resetEmailSent: (context) {
+      final email = ModalRoute.of(context)!.settings.arguments as String;
+      return ResetEmailSentScreen(email: email);
+    },
   };
 }
