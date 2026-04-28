@@ -1,5 +1,6 @@
 import 'package:diamon_store/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
+import '../screens/home/main_navigation_screen.dart';
 import '../screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -30,5 +31,6 @@ class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => const SplashScreen(),
     onboarding: (context) => const OnboardingScreen(),
+    home: (context) => const MainNavigationScreen(),
   };
 }

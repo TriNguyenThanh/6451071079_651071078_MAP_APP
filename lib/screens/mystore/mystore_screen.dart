@@ -190,9 +190,58 @@ class _MystoreScreenState extends State<MystoreScreen> {
               ),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Row(),
+            child: Row(
+              children: [
+                const Icon(Icons.store, color: Colors.white),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    brand,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+                ElevatedButton(onPressed: () {}, child: const Text("Theo dõi")),
+              ],
+            ),
           );
         }).toList(),
+      ),
+    );
+  }
+
+  /// ===== PRODUCT GRID =====
+  Widget _buildProductGrid() {
+    return SliverPadding(
+      padding: const EdgeInsets.all(20),
+      sliver: SliverGrid(
+        delegate: SliverChildBuilderDelegate((_, index) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white,
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.grey[300],
+                    child: const Center(child: Text("Image")),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text("Product"),
+                const SizedBox(height: 4),
+                const Text("\$99"),
+              ],
+            ),
+          );
+        }, childCount: 6),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 20,
+          crossAxisSpacing: 20,
+          mainAxisExtent: 280,
+        ),
       ),
     );
   }
