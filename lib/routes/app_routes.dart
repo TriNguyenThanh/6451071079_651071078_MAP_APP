@@ -5,6 +5,7 @@ import 'package:diamon_store/screens/auth/register_success_screen.dart';
 import 'package:diamon_store/screens/auth/reset_email_sent_screen.dart';
 import 'package:diamon_store/screens/auth/verify_email_screen.dart';
 import 'package:diamon_store/screens/onboarding/onboarding_screen.dart';
+import 'package:diamon_store/screens/profile/update_account_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/home/main_navigation_screen.dart';
 import '../screens/splash/splash_screen.dart';
@@ -50,5 +51,6 @@ class AppRoutes {
       final email = ModalRoute.of(context)!.settings.arguments as String;
       return ResetEmailSentScreen(email: email);
     },
+    updateAccount: (context) => const UpdateAccountScreen(),
   };
 }

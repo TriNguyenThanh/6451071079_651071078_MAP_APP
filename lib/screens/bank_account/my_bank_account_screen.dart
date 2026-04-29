@@ -95,7 +95,7 @@ class MyBankAccountScreen extends StatelessWidget {
                   bank.logo,
                   width: 50,
                   height: 50,
-                  errorBuilder: (_, __, ___) =>
+                  errorBuilder: (_, _, _) =>
                       const Icon(Icons.account_balance, size: 40),
                 ),
               ),
