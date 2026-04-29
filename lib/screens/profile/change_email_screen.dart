@@ -55,7 +55,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                           if (_formKey.currentState!.validate()) {
                             setState(() => _isLoading = true);
                             try {
-                              await_controller.updateEmail(
+                              await _controller.updateEmail(
                                 _emailController.text.trim(),
                               );
                               ScaffoldMessenger.of(context).showSnackBar(

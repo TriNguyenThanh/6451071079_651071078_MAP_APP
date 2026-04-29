@@ -43,7 +43,7 @@ class _ChangeNameScreenState extends State<ChangeNameScreen> {
                 final newName = _controller.text.trim();
                 if (newName.isEmpty) return;
                 try {
-                  awaitUpdateAccountController().changeName(newName);
+                  await UpdateAccountController().changeName(newName);
                   if (!mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
