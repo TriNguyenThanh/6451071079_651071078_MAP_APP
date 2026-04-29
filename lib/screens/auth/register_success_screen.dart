@@ -16,6 +16,13 @@ class RegisterSuccessScreen extends StatelessWidget {
               Image.asset(
                 'assets/images/animations/sammy-line-success.png',
                 height: 200,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.check_circle_outline,
+                    size: 120,
+                    color: Colors.green,
+                  );
+                },
               ),
               const SizedBox(height: 32),
               const Text(

@@ -10,13 +10,18 @@ class PrimaryButton extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 48,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: Text(title, style: const TextStyle(fontSize: 16)),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final bool hasBoundedWidth = constraints.hasBoundedWidth;
+        return SizedBox(
+          width: hasBoundedWidth ? constraints.maxWidth : null,
+          height: 48,
+          child: ElevatedButton(
+            onPressed: onPressed,
+            child: Text(title, style: const TextStyle(fontSize: 16)),
+          ),
+        );
+      },
     );
   }
 }

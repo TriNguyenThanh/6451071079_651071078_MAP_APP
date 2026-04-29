@@ -87,7 +87,7 @@ return {
 'taxRate': taxRate,
 'taxAmount': taxAmount,
 /// FIX COUPON
-'coupon': coupon != null ? coupon!.toJson() : null,
+'coupon': coupon?.toJson(),
 'couponDiscountAmount': couponDiscountAmount,
 'totalDiscountAmount': totalDiscountAmount,
 'totalAmount': totalAmount,
@@ -129,9 +129,7 @@ paymentStatus: json['paymentStatus'],
 orderStatus: json['orderStatus'],
 orderDate: json['orderDate'].toDate(),
 /// 🔥 FIX QUAN TRỌNG
-shippingDate: json['shippingDate'] != null
-? json['shippingDate'].toDate()
-: null,
+shippingDate: json['shippingDate']?.toDate(),
 shippingAddress: json['shippingAddress'],
 activities: [],
 itemCount: json['itemCount'] ?? 0,

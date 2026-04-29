@@ -19,6 +19,13 @@ class VerifyEmailScreen extends StatelessWidget {
               Image.asset(
                 'assets/images/animations/sammy-line-man-receives-a-mail.png',
                 height: 200,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.mark_email_read_outlined,
+                    size: 120,
+                    color: Colors.blue,
+                  );
+                },
               ),
               const SizedBox(height: 32),
               const Text(
@@ -40,6 +47,9 @@ class VerifyEmailScreen extends StatelessWidget {
                   User? user = FirebaseAuth.instance.currentUser;
                   if (user != null) {
                     await user.reload();
+                    if (!context.mounted) {
+                      return;
+                    }
                     user = FirebaseAuth.instance.currentUser;
                     if (user!.emailVerified) {
                       Navigator.pushNamed(context, AppRoutes.registerSuccess);
@@ -61,6 +71,9 @@ class VerifyEmailScreen extends StatelessWidget {
                   User? user = FirebaseAuth.instance.currentUser;
                   if (user != null) {
                     await user.sendEmailVerification();
+                    if (!context.mounted) {
+                      return;
+                    }
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Email xác minh đã được gửi lại'),

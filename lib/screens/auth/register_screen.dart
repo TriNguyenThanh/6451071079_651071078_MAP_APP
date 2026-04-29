@@ -23,6 +23,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool isPasswordHidden = true;
   bool agreePolicy = false;
 
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    usernameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   Future<void> _submitRegister() async {
     final bool isValid = formKey.currentState!.validate();
     if (!isValid) {
@@ -42,6 +53,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),
     );
+    if (!mounted) {
+      return;
+    }
     if (error != null) {
       ScaffoldMessenger.of(
         context,
@@ -196,26 +210,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    PrimaryButton(
-                      title: 'Tạo tài khoản',
-                      onPressed: _submitRegister,
-                    ),
-                    const SizedBox(height: 24),
-                    const Center(child: Text('OR')),
-                    const SizedBox(height: 16),
-                    SocialLoginButton(
-                      icon: Icons.g_mobiledata,
-                      title: 'Đăng ký với Google',
-                      onPressed: () {},
-                    ),
-                    const SizedBox(height: 12),
-                    SocialLoginButton(
-                      icon: Icons.facebook,
-                      title: 'Đăng ký với Facebook',
-                      onPressed: () {},
-                    ),
                   ],
+                ),
+                const SizedBox(height: 16),
+                PrimaryButton(
+                  title: 'Tạo tài khoản',
+                  onPressed: _submitRegister,
+                ),
+                const SizedBox(height: 24),
+                const Center(child: Text('OR')),
+                const SizedBox(height: 16),
+                SocialLoginButton(
+                  icon: Icons.g_mobiledata,
+                  title: 'Đăng ký với Google',
+                  onPressed: () {},
+                ),
+                const SizedBox(height: 12),
+                SocialLoginButton(
+                  icon: Icons.facebook,
+                  title: 'Đăng ký với Facebook',
+                  onPressed: () {},
                 ),
               ],
             ),

@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen>
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find<AuthController>();
   bool isPasswordHidden = true;
   bool rememberMe = false;
   // Hiệu ứng cho các phần tử xuất hiện
@@ -73,6 +73,9 @@ class _LoginScreenState extends State<LoginScreen>
         );
       }
     } catch (e) {
+      if (!mounted) {
+        return;
+      }
       String message = e.toString();
       if (message.contains('Email not verified')) {
         message = 'Vui lòng xác thực email trước khi đăng nhập';
@@ -120,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen>
                         child: Container(
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.blue.withOpacity(0.1),
+                            color: Colors.blue.withValues(alpha: 0.1),
                           ),
                           child: const Icon(
                             Icons.lock_person_rounded,
@@ -157,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen>
                           hintText: 'example@gmail.com',
                           prefixIcon: const Icon(Icons.email_outlined),
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.8),
+                          fillColor: Colors.white.withValues(alpha: 0.8),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide.none,
@@ -179,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen>
                           labelText: 'Mật khẩu',
                           prefixIcon: const Icon(Icons.lock_outline_rounded),
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.8),
+                          fillColor: Colors.white.withValues(alpha: 0.8),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide.none,

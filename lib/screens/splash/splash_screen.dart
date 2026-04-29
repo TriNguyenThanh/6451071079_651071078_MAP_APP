@@ -16,6 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigateToOnboarding() {
     Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) {
+        return;
+      }
       Navigator.pushReplacementNamed(context, '/onboarding');
     });
   }
@@ -29,6 +32,13 @@ class _SplashScreenState extends State<SplashScreen> {
           width: 180,
           height: 180,
           fit: BoxFit.contain,
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(
+              Icons.diamond_outlined,
+              size: 120,
+              color: Colors.black54,
+            );
+          },
         ),
       ),
     );

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../routes/app_pages.dart';
 import '../routes/app_routes.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter E-Commerce',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       initialRoute: AppRoutes.splash,
+      getPages: AppPages.pages,
       routes: AppRoutes.routes,
     );
   }

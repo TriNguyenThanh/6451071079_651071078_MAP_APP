@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 class AuthController extends GetxController {
   final AuthService _authService = AuthService();
   UserModel? currentUser;
+
+  bool get isLoggedIn => currentUser != null;
+
   Future<void> login(String email, String password) async {
     UserModel user = await _authService.loginWithEmailPassword(email, password);
     currentUser = user;
-    Get.back(result: true);
+    update();
   }
 
   Future<void> logout() async {
